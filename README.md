@@ -6,11 +6,15 @@ This repo includes agents around GitHub work. Agents are in steering folder as K
    - Linux: Install Finch or Docker via your package manager
 
 2. **Create a GitHub Personal Access Token**
-   - Go to GitHub Settings → Developer settings → Personal access tokens → Tokens (classic)
-   - Generate a new token with these scopes:
-     - `repo` (full control of private repositories)
-     - `workflow` (update GitHub Action workflows)
-     - `read:org` (read org and team membership)
+   - Go to GitHub Settings → Developer settings → Personal access tokens
+   - You can use either:
+     - **Tokens (classic)** - Recommended for full functionality
+       - Generate a new token with these scopes:
+         - `repo` (full control of private repositories)
+         - `workflow` (update GitHub Action workflows)
+         - `read:org` (read org and team membership)
+     - **Fine-grained tokens** - More secure but with limitations
+       - Note: For public repositories you don't own, fine-grained tokens only have read permission. This means you won't be able to perform write operations like adding comments to PRs you created in repositories you don't own.
 
 3. **Set up the wrapper script**
    - Copy `scripts/github-mcp-wrapper.sh` to your home directory or another location in your PATH
