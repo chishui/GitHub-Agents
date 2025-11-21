@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "builder-mcp": {
+      "command": "/Users/{{user}}/.toolbox/bin/builder-mcp",
+      "args": [],
+      "env": {},
+      "disabled": false
+    },
+    "github": {
+      "command": "/Users/{{user}}/github-mcp-wrapper.sh",
+      "args": [],
+      "env": {},
+      "disabled": false
+    }
+  }
+}
