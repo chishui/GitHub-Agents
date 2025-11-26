@@ -39,6 +39,46 @@ This repo includes agents around GitHub work. Agents are in steering folder as K
 
 5. **Restart Kiro** or reconnect the MCP server from the MCP Server view
 
+## Configure Obsidian MCP server in Kiro
+
+1. **Install Obsidian Local REST API plugin**
+   - Open Obsidian → Settings → Community plugins
+   - Search for "Local REST API" and install it
+   - Enable the plugin and configure:
+     - Enable HTTPS
+     - Generate an API token
+     - Note the port (default: 27124)
+
+2. **Set up the MCP server**
+   - Create and activate a virtual environment:
+     ```bash
+     cd .kiro/mcp-servers/obsidian
+     python3 -m venv venv
+     source venv/bin/activate
+     pip install -r requirements.txt
+     ```
+   - Create `.env` file in `.kiro/mcp-servers/obsidian/`:
+     ```
+     OBSIDIAN_TOKEN=your_api_token_here
+     ```
+
+3. **Configure Kiro MCP**
+   - Add this to `.kiro/settings/mcp.json`:
+   ```json
+   {
+     "mcpServers": {
+       "obsidian": {
+         "command": ".kiro/mcp-servers/obsidian/venv/bin/python",
+         "args": [".kiro/mcp-servers/obsidian/server.py"],
+         "env": {},
+         "disabled": false
+       }
+     }
+   }
+   ```
+
+4. **Restart Kiro** or reconnect the MCP server from the MCP Server view
+
 ## Agent List
 
 ### Maintainer's daily Routine
